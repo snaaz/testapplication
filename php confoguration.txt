@@ -1,0 +1,43 @@
+1) Setup apache virtualhost windows
+
+Update the vhosts file in Apache configuration. Under your XAMPP folder, add the following to apache\conf\extra\httpd-vhosts.conf 
+
+
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+   DocumentRoot "C:\myapps"
+   ServerName  localhost.myapps
+   <Directory "C:\myapps">
+        Require all granted 
+   </Directory>
+</VirtualHost>
+
+and
+
+
+Update the hosts file. On Windows, you can find it under C:\Windows\System32\drivers\etc\hosts
+You should already see the first line from below, it takes care of your mentioned other project. - 
+add the additional ones to make any requests to the mentioned virtual hosts routed back to your own machine.
+
+127.0.0.1             localhost
+127.0.0.1             localhost.myapps
+
+
+
+
+
+
+
+2) Run php scripts in html or htm files
+
+
+Paste the following line into the file (xampp\apache\conf\httpd.conf)
+
+AddType application/x-httpd-php .html .htm
+
+If this does not work, please remove the line above from your file and paste this alternative line into it, for PHP5:
+AddType application/x-httpd-php5 .html .htm
+
+
+3) Restart apache server everytime you change xamp/php configurations.
