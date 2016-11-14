@@ -11,6 +11,7 @@ $connection = new mysqli($servername,$username,$password,$dbname);
   }
 
 
+  l
 // username and password sent from form 
 $email=$_POST['email']; 
 $password=$_POST['password']; 
